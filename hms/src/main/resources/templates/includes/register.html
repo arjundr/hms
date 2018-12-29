@@ -1,0 +1,190 @@
+<html>
+<head th:includes="head">
+    <title>Registration</title>
+
+
+    <script type="text/javascript" src="<c:url value='/static/js/user-validations.js' />"></script>
+</head>
+
+<body class="background">
+
+
+<header style="margin-bottom: 60px">
+
+    <nav class="navbar navbar-dark white navbar-fixed-top scrolling-navbar"
+         role="navigation">
+         
+        <div class="container-fluid" style="">
+        
+            <div class="navbar-header">
+            <a class="navbar-brand" rel="home" href="/hms/" title="Logo">
+            <img style="height: 50px; margin-top: -5px;"
+             src="/images/kokos-logo.png">
+             </a>
+           </div>
+
+            <div id="navigation">
+                <ul class="nav navbar-nav" style="float: right;">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/booking">BOOK ROOM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/rooms" >ROOMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/gallery">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/testimonial">TESTIMONIAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="#services">FACILITIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/tariff">TARIFF</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/contact">CONTACT</a>
+                    </li>
+
+                        <li class="nav-item">
+                            <a href="/admin">
+                                <button id="admin" type="button"
+                                        class="btn-danger waves-button waves-light material-red"
+                                        style="font-weight: 500; font-size: 15px;">ADMIN PANEL
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/register">
+                                <button id="manager" type="button"
+                                        class="btn-primary waves-button waves-light light-blue"
+                                        style="font-weight: 600; font-size: 15px;">SIGNUP
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/login">
+                                <button id="login" type="button" class="btn-primary waves-button light-blue"
+                                        style="width: 120px; font-weight: 500; font-size: 15px">LOGIN
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown"
+                            style="height: 40px; width: 40px; margin-top: -28.5px; margin-left: 30px;">
+                            <a id="dropdownMenu1" data-toggle="dropdown">
+                                <img src="/images/default_picture.png' /> "
+                                     class="img-fluid img-circle">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1"
+                                 data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                <a id="account" class="dropdown-item waves-effect waves-light"
+                                   href="/user/profile" >Profile</a>
+                                <a id="logout" class="dropdown-item waves-effect waves-light"
+                                   href="/logout">Logout</a>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+<section id="register" style="margin-top: 5%">
+
+    <form:form id="regForm" action="regis" method="post" modelAttribute="user">
+        <form:input type="hidden" path="id" id="id"/>
+        <div>
+            <h1 class="heading h1-responsive blue center-div white-text card-header">SIGN UP</h1>
+
+            <div class="form-group card card-block">
+
+                <div>
+                    <label for="firstName" 0data-icon="u">Your first name</label>
+                    <form:input type="text" onchange="firstNameChecker()" path="firstName" id="firstName"
+                                placeholder="John" required="required"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="firstName" class="help-inline material-red-text "/>
+                </div>
+                </br>
+                <div>
+                    <label for="lastName" data-icon="u">Your last name</label>
+                    <form:input type="text" onchange="lastNameChecker()" path="lastName" id="lastName" placeholder="Doe"
+                                required="required"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="lastName" class="help-inline material-red-text "/>
+                </div>
+                </br>
+                <div>
+                    <label for="username" data-icon="e">Your unique customer name</label>
+                    <form:input type="text" onchange="usernameChecker()" path="username" id="username"
+                                placeholder="johndoe_199x"
+                                required="required"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="username" class="help-inline material-red-text "/>
+                    <span class="animated help-inline material-red-text " id="usernameerror"></span>
+                </div>
+                </br>
+                <div>
+                    <label for="email" data-icon="e">Your email</label>
+                    <form:input type="email" onchange="emailChecker()" path="email" id="email"
+                                placeholder="johndoe_199x@mail.com"
+                                required="required"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="email" class="help-inline material-red-text "/>
+                    <span class="animated help-inline material-red-text " id="emailerror"></span>
+                </div>
+                </br>
+                <div>
+                    <label for="password" data-icon="p">Your password </label>
+                    <form:input type="password" onchange="passwordChecker()" path="password" id="password"
+                                placeholder="Password"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="password" class="help-inline material-red-text "/>
+                </div>
+                </br>
+                <div>
+                    <label for="confirmPassword" data-icon="p">Please confirm your password </label>
+                    <input id="confirmPassword" onchange="checkFields()" required="required" type="password"
+                           placeholder="Confirm Password"/>
+                </div>
+                </br>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </br>
+                <div style="text-align: center">
+                    <input class="btn btn-primary waves-button waves-light" style="width: 240px; height: 40px"
+                           type="submit" value="Sign up"/>
+                </div>
+                </br>
+                <div class="change_link" style="text-align: center">
+                    Already a member ? </br>
+                    <a href="/hms/login" class="to_register"> Login Instead </a>
+                </div>
+            </div>
+        </div>
+    </form:form>
+</section>
+</body>
+</html>

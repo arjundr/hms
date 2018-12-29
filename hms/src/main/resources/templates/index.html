@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:includes="head">
+<meta charset="ISO-8859-1">
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+     <link rel="stylesheet" type="text/css" href="../css/gallery-grid.css" th:href="@{/css/gallery-grid.css}" />
+     <link rel="stylesheet" type="text/css" href="../css/jquery.bsPhotoGallery.css" th:href="@{/css/jquery.bsPhotoGallery.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/app.css" th:href="@{/css/app.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/mdb.min.css" th:href="@{/css/mdb.min.css}" />
+      
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+      
+         
+      <script th:src="@{/js/jquery.bsPhotoGallery.js}"></script>
+            
+                        <script th:src="@{/js/photo-gallery.js}"></script>
+            
+                        <script th:src="@{/js/room-validations.js}"></script>
+            
+                        <script th:src="@{/js/tether.js}"></script>
+            
+                        <script th:src="@{/js/user-validations.js}"></script>
+            
+ <style>
+ select.form-control:not([size]):not([multiple]) {
+    height: 3.5rem;
+    }
+    h2{
+
+    margin-left: 354px;
+
+    }
+ 
+ </style>           
+    
+</head>
+<body>
+
+
+<header style="margin-bottom: 60px">
+
+    <nav class="navbar navbar-dark white navbar-fixed-top scrolling-navbar"
+         role="navigation">
+         
+        <div class="container-fluid" style="">
+        
+            <div class="navbar-header">
+            <a class="navbar-brand" rel="home" href="/hms/" title="Logo">
+            <img style="height: 50px; margin-top: -5px;"
+             src="/images/kokos-logo.png">
+             </a>
+           </div>
+
+            <div id="navigation">
+                <ul class="nav navbar-nav" style="float: right;">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/booking">BOOK ROOM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/rooms" >ROOMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/gallery">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/testimonial">TESTIMONIAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="#services">FACILITIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/tariff">TARIFF</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/contact">CONTACT</a>
+                    </li>
+
+                        <li class="nav-item">
+                            <a href="/admin">
+                                <button id="admin" type="button"
+                                        class="btn-danger waves-button waves-light material-red"
+                                        style="font-weight: 500; font-size: 15px;">ADMIN PANEL
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/register">
+                                <button id="manager" type="button"
+                                        class="btn-primary waves-button waves-light light-blue"
+                                        style="font-weight: 600; font-size: 15px;">SIGNUP
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/login">
+                                <button id="login" type="button" class="btn-primary waves-button light-blue"
+                                        style="width: 120px; font-weight: 500; font-size: 15px">LOGIN
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown"
+                            style="height: 40px; width: 40px; margin-top: -28.5px; margin-left: 30px;">
+                            <a id="dropdownMenu1" data-toggle="dropdown">
+                                <img src="/images/default_picture.png' /> "
+                                     class="img-fluid img-circle">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1"
+                                 data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                <a id="account" class="dropdown-item waves-effect waves-light"
+                                   href="/user/profile" >Profile</a>
+                                <a id="logout" class="dropdown-item waves-effect waves-light"
+                                   href="/logout">Logout</a>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="display_carousel" class="carousel slide carousel-fade display_carousel" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#display_carousel" data-slide-to="0" class=""></li>
+        <li data-target="#display_carousel" data-slide-to="1" class=""></li>
+        <li data-target="#display_carousel" data-slide-to="2" class="active"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item">
+            <div id="display_image1" class="flex-center animated">
+                <img src="/images/display1.jpg" />
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div id="display_image2" class="flex-center animated">
+                <img src="/images/display2.jpg" />
+            </div>
+        </div>
+
+        <div class="carousel-item active">
+            <div id="display_image3" class="flex-center animated">
+                <img src="/images/display3.jpg" />
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#display_carousel" role="button" data-slide="prev">
+        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#display_carousel" role="button" data-slide="next">
+        <span class="icon-next" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<section class="section bg-light"  id="next">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 mx-auto text-center mb-5">
+            <h2 class="heading">Check Availabilty</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="block-32" style="margin-top: 80px;">
+
+            <form action="#">
+              <div class="row">
+                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                  <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="icon-calendar"></span></div>
+                    <input type="text" id="checkin_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                  <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="icon-calendar"></span></div>
+                    <input type="text" id="checkout_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                  <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="adults" class="font-weight-bold text-black">Adults</label>
+                      <div class="field-icon-wrap">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="adults" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="children" class="font-weight-bold text-black">Children</label>
+                      <div class="field-icon-wrap">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="children" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 align-self-end" style="margin-top: 20px;">
+                  <button class="btn btn-primary btn-block text-white">Check Availabilty</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+
+</body>
+
+</html>
