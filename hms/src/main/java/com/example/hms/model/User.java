@@ -1,40 +1,55 @@
 
 package com.example.hms.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 
 
 @Entity 
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-
-    private String username;
+    @Column(name = "id")
+    private int id;
+    /*@Column (name="username")
+    @NotEmpty(message = "*Please provide your username")
+    private String username;*/
+    @Column (name="email")
+    @Email(message = "*Please provide a valid Email")
+    @NotEmpty(message = "*Please provide an email")
 	private String email;
+    @Column (name="contact")
+    @NotEmpty(message = "*Please provide your contact number")
 	private String contact;
+    @Column(name = "password")
+    @Length(min = 5, message = "*Your password must have at least 5 characters")
+    @NotEmpty(message = "*Please provide your password")
 	private String password;
-	private String firstName;
-	private String lastName;
-public Integer getId() {
-        return id;
-    }
+    @Column (name="firstname")
+    @NotEmpty(message = "*Please provide your firstname")
+	private String firstname;
+    @Column (name="lastname")
+    @NotEmpty(message = "*Please provide your lastname")
+	private String lastname;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public String getUsername() {
+    /*public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
-    }
+    }*/
     
     public String getContact() {
         return contact;
@@ -52,26 +67,21 @@ public Integer getId() {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
-
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
-
     public String getEmail() {
         return email;
     }

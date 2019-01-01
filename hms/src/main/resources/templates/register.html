@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-      <head>
- 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
@@ -12,9 +11,9 @@
       <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
       <link rel="stylesheet" type="text/css" href="../css/app.css" th:href="@{/css/app.css}" />
       <link rel="stylesheet" type="text/css" href="../css/mdb.min.css" th:href="@{/css/mdb.min.css}" />
-
 </head>
-    <body>
+<body>
+
        
 <header style="margin-bottom: 60px">
 
@@ -84,7 +83,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/login">
+                            <a href="">
                                 <button id="login" type="button" class="btn-primary waves-button light-blue"
                                         style="width: 120px; font-weight: 500; font-size: 15px">LOGIN
                                 </button>
@@ -111,8 +110,9 @@
         </div>
     </nav>
 </header>
-       
-       
+
+
+
 <div id="display_carousel" class="carousel slide carousel-fade display_carousel" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#display_carousel" data-slide-to="0" class=""></li>
@@ -149,35 +149,41 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-       
-       
-        <div class="container" style="max-width:600px;margin:60px auto;">
+  
+  <div class="container" style="max-width:600px;margin:60px auto;">
          <div th:if="${message}" th:text=${message}>
             
         </div>
-	<form role="form" th:action="@{/signup}" method="post">
-	   <div class="form-group">
-	      <label for="firstname">FisrName</label>
-	      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter name">
-	   </div>
-	   <div class="form-group">
-	      <label for="lastname">LastName</label>
-	      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter address">
-	   </div>
-	   <div class="form-group">
-	      <label for="mobile">Mobile</label>
-	      <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter contact">
-	   </div>
-	   <div class="form-group">
-	      <label for="email">Email</label>
-	      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
-	   </div>
-	   <div class="form-group">
-	      <label for="pwd">Password</label>
-	      <input type="password" class="form-control" name="password" id="pwd" placeholder="Enter password">
-	   </div>
+  	<form th:action="@{/register}" th:object="${user}" method="post">
+  
+  <div class="form-group">
+  	      <label for="firstname">FirstName</label>
+  	      <input type="text" th:field="*{firstname}"  class="form-control" id="firstname" name="firstname" placeholder="Enter name">
+  	      <label style="color: red;font-weight: bold;" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></label>
+  	      
+  </div>
+  <div class="form-group">
+  		<label for="lastname">LastName</label>
+  		<input type="text" th:field="*{lastname}" class="form-control" id="lastname" name="lastname" placeholder="Enter address">
+  	    <label style="color: red;font-weight: bold;" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></label>
+  </div>
+  <div class="form-group">
+	   <label for="mobile">Mobile</label>
+	   <input type="text" th:field="*{contact}" class="form-control" id="contact" name="contact" placeholder="Enter contact">
+   	   <label style="color: red;font-weight: bold;" th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}"></label>
+  </div>
+  <div class="form-group">
+	   <label for="email">Email</label>
+	   <input type="email" th:field="*{email}" class="form-control" name="email" id="email" placeholder="Enter email">
+       <label style="color: red;font-weight: bold;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+  </div>
+  <div class="form-group">
+	   <label for="pwd">Password</label>
+	   <input type="password" th:field="*{password}" class="form-control" name="password" id="pwd" placeholder="Enter password">
+       <label style="color: red;font-weight: bold;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
+  </div>
 	     <button type="submit" class="btn btn-default">Register</button>
-	</form>
-</div>
-    </body>
+</form>
+	</div>
+</body>
 </html>	
