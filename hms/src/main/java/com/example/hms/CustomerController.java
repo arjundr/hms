@@ -61,6 +61,9 @@ public class CustomerController{
 		return "register";
 	}
 	
-		
+	@GetMapping("/gallery")
+    public String gallery() {
+        return "gallery";
+    }
  
 }

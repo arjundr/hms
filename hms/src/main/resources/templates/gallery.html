@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:includes="head">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+     <link rel="stylesheet" type="text/css" href="../css/gallery-grid.css" th:href="@{/css/gallery-grid.css}" />
+     <link rel="stylesheet" type="text/css" href="../css/jquery.bsPhotoGallery.css" th:href="@{/css/jquery.bsPhotoGallery.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/app.css" th:href="@{/css/app.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/mdb.min.css" th:href="@{/css/mdb.min.css}" />
+</head>
+<body class="background">
+       
+<header style="margin-bottom: 60px">
+
+    <nav class="navbar navbar-dark white navbar-fixed-top scrolling-navbar"
+         role="navigation">
+         
+        <div class="container-fluid" style="">
+        
+            <div class="navbar-header">
+            <a class="navbar-brand" rel="home" href="/hms/" title="Logo">
+            <img style="height: 50px; margin-top: -5px;"
+             src="/images/kokos-logo.png">
+             </a>
+           </div>
+
+            <div id="navigation">
+                <ul class="nav navbar-nav" style="float: right;">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/booking">BOOK ROOM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/rooms" >ROOMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/gallery">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/testimonial">TESTIMONIAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="#services">FACILITIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/tariff">TARIFF</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light text-muted"
+                           href="/contact">CONTACT</a>
+                    </li>
+
+                        <li class="nav-item">
+                            <a href="/admin">
+                                <button id="admin" type="button"
+                                        class="btn-danger waves-button waves-light material-red"
+                                        style="font-weight: 500; font-size: 15px;">ADMIN PANEL
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/register">
+                                <button id="manager" type="button"
+                                        class="btn-primary waves-button waves-light light-blue"
+                                        style="font-weight: 600; font-size: 15px;">SIGNUP
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="">
+                                <button id="login" type="button" class="btn-primary waves-button light-blue"
+                                        style="width: 120px; font-weight: 500; font-size: 15px">LOGIN
+                                </button>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown"
+                            style="height: 40px; width: 40px; margin-top: -28.5px; margin-left: 30px;">
+                            <a id="dropdownMenu1" data-toggle="dropdown">
+                                <img src="/images/default_picture.png' /> "
+                                     class="img-fluid img-circle">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1"
+                                 data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                <a id="account" class="dropdown-item waves-effect waves-light"
+                                   href="/user/profile" >Profile</a>
+                                <a id="logout" class="dropdown-item waves-effect waves-light"
+                                   href="/logout">Logout</a>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="tz-gallery">
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/room1.jpg">
+                    <img src="images/room1.jpg" alt="Room1">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/room2.jpg">
+                    <img src="images/room2.jpg" alt="Room2">
+                </a>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <a class="lightbox" href="static/images/room3.jpg">
+                    <img src="images/room3.jpg" alt="Room3">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/service1.jpg">
+                    <img src="images/service1.jpg" alt="Service1">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/service2.jpg">
+                    <img src="images/service2.jpg" alt="Service2">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/service3.jpg">
+                    <img src="images/service3.jpg" alt="Service3">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/display1.jpg">
+                    <img src="images/display1.jpg" alt="Display1">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/display2.jpg">
+                    <img src="images/display2.jpg" alt="Display2">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="static/images/display3.jpg">
+                    <img src="images/display3.jpg" alt="Display3">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+<div th:replace="includes/footer :: footer"> </div>
+
+</body>
+</html>
