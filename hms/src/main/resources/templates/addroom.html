@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:includes="head">
+    <title>Add Room</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+     <link rel="stylesheet" type="text/css" href="../css/gallery-grid.css" th:href="@{/css/gallery-grid.css}" />
+     <link rel="stylesheet" type="text/css" href="../css/jquery.bsPhotoGallery.css" th:href="@{/css/jquery.bsPhotoGallery.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/app.css" th:href="@{/css/app.css}" />
+      <link rel="stylesheet" type="text/css" href="../css/mdb.min.css" th:href="@{/css/mdb.min.css}" />
+      
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+      
+         
+      <script th:src="@{/js/jquery.bsPhotoGallery.js}"></script>
+            
+                        <script th:src="@{/js/photo-gallery.js}"></script>
+            
+                        <script th:src="@{/js/room-validations.js}"></script>
+            
+                        <script th:src="@{/js/tether.js}"></script>
+            
+                        <script th:src="@{/js/user-validations.js}"></script>
+
+    <script type="text/javascript" th:src="@{/static/js/room-validations.js}"></script>
+    <style type="text/css">
+    .form-group{
+	
+    margin-left: 40px;
+    margin-right: 100px;
+}
+.col-form-label{
+    font-size: 12px;
+
+}
+    </style>
+</head>
+
+<body class="background">
+
+<header style="margin-bottom: 60px">
+    <nav class="navbar navbar-dark theme-black navbar-fixed-top scrolling-navbar"
+         role="navigation">
+        <div class="container-fluid" style="">
+            <div class="navbar-header">
+                <a class="navbar-brand" rel="home" href="/hms/" title="Logo">
+            <img style="height: 50px; margin-top: -5px;"
+             src="images/kokos-logo.png"><th:authorize access="hasRole('ADMIN')">ADMIN PANEL</th:authorize>
+                        <th:authorize access="hasRole('MANAGER')">MANAGER PANEL</th:authorize></a>
+            </div>
+
+            <div id="navigation">
+                <ul class="nav navbar-nav" style="float: right;">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light white-text"
+                           href="">BOOK ROOM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light white-text"
+                           href="">ROOMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light white-text"
+                           href="/#services">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light white-text"
+                           href="">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light white-text"
+                           href="">CONTACT</a>
+                    </li>
+
+                    <th:authorize access="isAuthenticated()">
+                        <li class="nav-item dropdown"
+                            style="height: 40px; width: 40px; margin-top: -28.5px; margin-left: 30px;">
+                            <a id="dropdownMenu1" data-toggle="dropdown">
+                                <img src="images/default_picture.png"
+                                     class="img-fluid img-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right"
+                                 aria-labelledby="dropdownMenu1"
+                                 data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                <a id="account" class="dropdown-item waves-effect waves-light"
+                                   href="">Profile</a>
+                                <a id="logout" class="dropdown-item waves-effect waves-light"
+                                   href="">Logout</a>
+                            </div>
+                        </li>
+                    </th:authorize>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+<section id="add_room" style="margin-top: 5%">
+
+<form action="/hms/admin/new/room" method="post" enctype="multipart/form-data" id="roomForm">
+   <h1 class="heading h1-responsive blue-grey center-div white-text card-header">ADD ROOM</h1>
+   
+ <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Room name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" placeholder="name">
+    </div>
+  </div>
+ 
+  <div class="form-group row">
+    <label for="capacity" class="col-sm-2 col-form-label">Room Capacity</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="capacity" placeholder="Number of person">
+    </div>
+  </div>
+ 
+  <div class="form-group row">
+    <label for="description" class="col-sm-2 col-form-label">Room Description</label>
+        <div class="col-sm-10">
+    <textarea class="form-control" id="description" rows="3"></textarea>
+    </div>
+  </div>
+  
+ 
+  <div class="form-group row">
+    <label for="capacity" class="col-sm-2 col-form-label">Total Bed</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="bed" placeholder="number of bed">
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-2 col-form-label">Extra Feature</div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="bath">
+        <label class="form-check-label" for="bath">
+          Bath included
+        </label>
+      </div>
+   
+  
+  
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="internet">
+        <label class="form-check-label" for="internet">
+          Internet provided
+        </label>
+      </div>
+    </div>
+    <div class="form-row">
+  
+  <div class="form-group row">
+      <label for="inputState" class="col-sm-2 col-form-label">Select Room</label>
+      <div class="col-sm-10">
+      <select id="inputState" class="form-control form-control-lg">
+        <option selected>VIP ROOM</option>
+        <option>NORMAL ROOM</option>
+      </select>
+      </div>
+    </div>
+ </div>
+   <div class="form-group row">
+    <label for="capacity" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="price" placeholder="price">
+    </div>
+  </div>
+   
+   <div class="form-group row">
+    <label for="pictures" class="col-sm-2 col-form-label">Select Images</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control" size="25" id="pictures" multiple placeholder="pictures">
+    </div>
+  </div>
+               
+                <div style="text-align: center">
+                    <input class="btn btn-blue-grey waves-button waves-light" style="width: 240px; height: 40px"
+                           type="submit" value="Add Room"/>
+                </div>
+                <br>
+                <div class="change_link" style="text-align: center">
+                    <a href="/hms/admin" class="to_register">GO BACK TO ADMIN PANEL</a>
+                </div>
+            </div>
+       
+    </form>
+</section>
+</body>
+</html>
