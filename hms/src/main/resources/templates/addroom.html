@@ -195,5 +195,45 @@
        
     </form>
 </section>
+
+
+<script type="text/javascript">
+$(document).ready(function($){
+	$('.btn').on('click',function(e){
+		e.preventDefault();
+		
+		alert("f");
+		var name=$('#name').val();
+		var capacity=$('#capacity').val();
+		var description=$('#description').val();
+		var bed=$('#bed').val();
+		var feature=$("input[name='feature']:checked").val();
+		var roomtype=$( "#inputState option:selected" ).val();
+		var price=$('#price').val();
+		
+		alert(capacity);
+		alert(description);
+		alert(bed);
+		alert(feature);
+		alert(roomtype);
+
+		/*$.ajax({
+        	url: "/signup",
+        	type: "POST",
+        	data:{name:name,address:address,dept_id:dept_id,email:email},
+        	success: function(result){
+				alert("succ");
+       		},
+       		error:function(err){
+       			alert("error");
+       		}
+    	});*/
+		//return false;
+
+	});
+	
+});
+</script>
+
 </body>
 </html>
